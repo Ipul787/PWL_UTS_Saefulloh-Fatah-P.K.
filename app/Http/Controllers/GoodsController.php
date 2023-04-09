@@ -12,7 +12,11 @@ class GoodsController extends Controller
      */
     public function index()
     {
-        //
+        $goods = Goods::all(); 
+        // Mengambil semua isi tabel 
+        $posts = Goods::orderBy('goods_code', 'goods_name', 'category', 'goods_price', 'qty')->paginate(6); 
+        return view('mahasiswas.index', compact('mahasiswas')); 
+        with('i', (request()->input('page', 1) - 1) * 5);
     }
 
     /**
