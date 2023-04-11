@@ -12,10 +12,10 @@ class GoodsController extends Controller
      */
     public function index()
     {
-        $goods = Goods::all(); 
+        $goodss = Goods::all(); 
         // Mengambil semua isi tabel 
         $posts = Goods::orderBy('goods_code', 'goods_name', 'category', 'goods_price', 'qty')->paginate(6); 
-        return view('mahasiswas.index', compact('mahasiswas')); 
+        return view('goodss.index', compact('goodss')); 
         with('i', (request()->input('page', 1) - 1) * 5);
     }
 
@@ -24,7 +24,7 @@ class GoodsController extends Controller
      */
     public function create()
     {
-        //
+        return view('goods.create');
     }
 
     /**
@@ -32,38 +32,60 @@ class GoodsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([ 
+            'goods_code' => 'required', 
+            'goods_name' => 'required', 
+            'category' => 'required', 
+            'goods_price' => 'required', 
+            'qty' => 'required', 
+        ]); 
+        Goods::create($request->all()); 
+        return redirect()->route('goodss.index') 
+        ->with('success', 'Goods Successfully Added');
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show($goods_code)
     {
-        //
+        $Goods = Goods::find($goods_code); 
+        return view('goodss.detail', compact('Goods'));
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit($goods_code)
     {
-        //
+        $Goods = Goods::find($goods_code); 
+        return view('goodss.edit', compact('Goods'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, $goods_code)
     {
-        //
+        $request->validate([ 
+            'goods_code' => 'required', 
+            'goods_name' => 'required', 
+            'category' => 'required', 
+            'goods_price' => 'required', 
+            'qty' => 'required', 
+        ]); 
+        Goods::find($goods_code)->update($request->all()); 
+        return redirect()->route('goodss.index') 
+        ->with('success', 'Goods Successfully Updated');
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy($goods_code)
     {
-        //
+        Goods::find($goods_code)->delete(); 
+        return redirect()->route('goodss.index') 
+        -> with('success', 'Goods Successfully Deleted');
     }
 }
