@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Controllers\Controller;
+use App\Models\Goods;
 use Illuminate\Http\Request;
 
 class GoodsController extends Controller
@@ -14,8 +14,8 @@ class GoodsController extends Controller
     {
         $goods = Goods::all(); 
         // Mengambil semua isi tabel 
-        $posts = Goods::orderBy('goods_code', 'goods_name', 'category', 'goods_price', 'qty')->paginate(6); 
-        return view('goods.index', compact('goods')); 
+        $posts = Goods::orderBy('goods_code', 'asc')->paginate(6); 
+        return view('index', compact('goods')); 
         with('i', (request()->input('page', 1) - 1) * 5);
     }
 
@@ -24,7 +24,7 @@ class GoodsController extends Controller
      */
     public function create()
     {
-        return view('goods.create');
+        return view('create');
     }
 
     /**
@@ -50,7 +50,7 @@ class GoodsController extends Controller
     public function show($goods_code)
     {
         $Goods = Goods::find($goods_code); 
-        return view('goods.detail', compact('Goods'));
+        return view('detail', compact('Goods'));
     }
 
     /**
@@ -59,7 +59,7 @@ class GoodsController extends Controller
     public function edit($goods_code)
     {
         $Goods = Goods::find($goods_code); 
-        return view('goods.edit', compact('Goods'));
+        return view('edit', compact('Goods'));
     }
 
     /**

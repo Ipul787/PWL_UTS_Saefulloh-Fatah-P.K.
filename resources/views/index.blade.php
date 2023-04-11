@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('users.layout')
 @section('content')
  
 <html lang="en">
@@ -15,8 +15,13 @@
             <div class="col-md-10">
                 <h3> List of Goods Sold by Megamarket Superstore </h3>
             </div>
+        </div>
+        <div class="row">
+            <div class="col-md-10">
+                
+            </div>
             <div class="col-sm-2">
-                <a class="btn btn-success" href="{{ route('goods.create')}}"> Add Goods </a>
+                <a class="btn btn-success" href="{{ route('Goods.create')}}"> Add Goods </a>
             </div>
         </div> 
         <br>
@@ -38,17 +43,17 @@
             <th width="210px">Action</th>
         </tr>
       </thead>
-        @foreach ($goods) 
+        @foreach ($goods as $goodss) 
             <tr>
-                <td><b>{{$goods->goods_code}}.<b></td>
-                <td>{{$goods->goods_name}}</td>
-                <td>{{$goods->category}}</td>
-                <td>{{$goods->price}}</td>
-                <td>{{$goods->qty}}</td>
+                <td><b>{{$goodss->goods_code}}<b></td>
+                <td>{{$goodss->goods_name}}</td>
+                <td>{{$goodss->category}}</td>
+                <td>{{$goodss->goods_price}}</td>
+                <td>{{$goodss->qty}}</td>
                 <td>
-                    <form action="{{ route('goods.destroy',$goods->goods_code) }}" method="post">
-                    <a class="btn btn-sm btn-success" href="{{ route('goods.show', $goods->goods_code)}}">Show</a>
-                    <a class="btn btn-sm btn-warning" href="{{ route('goods.edit', $goods->goods_code)}}">Edit</a>
+                    <form action="{{ route('Goods.destroy',$goodss->goods_code) }}" method="post">
+                    <a class="btn btn-sm btn-success" href="{{ route('Goods.show', $goodss->goods_code)}}">Show</a>
+                    <a class="btn btn-sm btn-warning" href="{{ route('Goods.edit', $goodss->goods_code)}}">Edit</a>
                     @csrf
                     @method('DELETE')
                     <button type="submit" class="btn btn-sm btn-danger">Delete</button>
@@ -57,8 +62,6 @@
             </tr>
         @endforeach
     </table>
-
-    {!! $goods->links() !!}
     </div>
     </body>
 
