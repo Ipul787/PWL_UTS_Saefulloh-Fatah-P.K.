@@ -12,7 +12,6 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('goods', function (Blueprint $table) {
-            $table->id();
             $table->string('goods_code', 6)->index();
             $table->string('goods_name', 100)->index();
             $table->string('category', 10)->index();
