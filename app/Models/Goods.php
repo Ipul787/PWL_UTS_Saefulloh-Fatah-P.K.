@@ -7,5 +7,15 @@ use Illuminate\Database\Eloquent\Model;
 
 class Goods extends Model
 {
-    use HasFactory;
+    protected $table="goods";
+    public $timestamps= false;
+    protected $primarykey = 'goods_code';
+
+    protected $fillable = [
+        'goods_code', 
+        'goods_name',
+        'category', 
+        'goods_price', 
+        'qty', 
+    ];
 }

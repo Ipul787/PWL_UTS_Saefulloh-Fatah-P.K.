@@ -12,10 +12,10 @@ class GoodsController extends Controller
      */
     public function index()
     {
-        $goodss = Goods::all(); 
+        $goods = Goods::all(); 
         // Mengambil semua isi tabel 
         $posts = Goods::orderBy('goods_code', 'goods_name', 'category', 'goods_price', 'qty')->paginate(6); 
-        return view('goodss.index', compact('goodss')); 
+        return view('goods.index', compact('goods')); 
         with('i', (request()->input('page', 1) - 1) * 5);
     }
 
@@ -40,7 +40,7 @@ class GoodsController extends Controller
             'qty' => 'required', 
         ]); 
         Goods::create($request->all()); 
-        return redirect()->route('goodss.index') 
+        return redirect()->route('goods.index') 
         ->with('success', 'Goods Successfully Added');
     }
 
@@ -50,7 +50,7 @@ class GoodsController extends Controller
     public function show($goods_code)
     {
         $Goods = Goods::find($goods_code); 
-        return view('goodss.detail', compact('Goods'));
+        return view('goods.detail', compact('Goods'));
     }
 
     /**
@@ -59,7 +59,7 @@ class GoodsController extends Controller
     public function edit($goods_code)
     {
         $Goods = Goods::find($goods_code); 
-        return view('goodss.edit', compact('Goods'));
+        return view('goods.edit', compact('Goods'));
     }
 
     /**
@@ -75,7 +75,7 @@ class GoodsController extends Controller
             'qty' => 'required', 
         ]); 
         Goods::find($goods_code)->update($request->all()); 
-        return redirect()->route('goodss.index') 
+        return redirect()->route('goods.index') 
         ->with('success', 'Goods Successfully Updated');
     }
 
@@ -85,7 +85,7 @@ class GoodsController extends Controller
     public function destroy($goods_code)
     {
         Goods::find($goods_code)->delete(); 
-        return redirect()->route('goodss.index') 
+        return redirect()->route('goods.index') 
         -> with('success', 'Goods Successfully Deleted');
     }
 }
