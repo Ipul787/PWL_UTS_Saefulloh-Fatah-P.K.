@@ -10,6 +10,7 @@ class Goods extends Model
     protected $table="goods";
     public $timestamps= false;
     protected $primaryKey = 'goods_code';
+    public $incrementing = false;
 
     protected $fillable = [
         'goods_code', 

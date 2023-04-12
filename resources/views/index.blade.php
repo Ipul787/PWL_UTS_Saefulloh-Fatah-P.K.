@@ -51,11 +51,12 @@
                 <td>{{$goodss->goods_price}}</td>
                 <td>{{$goodss->qty}}</td>
                 <td>
+                    <form action="{{ route('Goods.destroy',$goodss->goods_code) }}" method="post">
                     <a class="btn btn-sm btn-success" href="{{ route('Goods.show', $goodss->goods_code)}}">Show</a>
                     <a class="btn btn-sm btn-warning" href="{{ route('Goods.edit', $goodss->goods_code)}}">Edit</a>
                     @csrf
                     @method('DELETE')
-                    <a class="btn btn-sm btn-danger" href="{{ route('Goods.destroy', $goodss->goods_code)}}">Delete</a>
+                    <button type="submit" class="btn btn-sm btn-danger">Delete</button>
                     </form>    
                 </td>
             </tr>
