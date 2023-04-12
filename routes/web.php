@@ -19,4 +19,6 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/Goods/search', [GoodsController::class, 'search']);
+
 Route::resource('Goods', GoodsController::class);
