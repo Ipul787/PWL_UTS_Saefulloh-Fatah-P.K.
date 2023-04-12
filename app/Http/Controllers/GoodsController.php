@@ -88,4 +88,19 @@ class GoodsController extends Controller
         return redirect()->route('Goods.index') 
         -> with('success', 'Goods Successfully Deleted');
     }
+
+    /**
+     * Search for a particular name
+     */
+    public function search(Request $request)
+    {
+        if ($request->has('search')) {
+            $Goods = Goods::where('goods_name','LIKE','%'.$request->search.'%')->get();
+        }
+        else {
+            $Goods = Goods::all();
+        }
+
+        return view('index', ['goods' => $Goods]);
+    }
 }

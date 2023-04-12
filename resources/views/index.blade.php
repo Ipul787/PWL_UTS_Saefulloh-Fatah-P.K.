@@ -16,14 +16,23 @@
                 <h3> List of Goods Sold by Megamarket Superstore </h3>
             </div>
         </div>
+        @foreach ($goods as $goodss)
         <div class="row">
-            <div class="col-md-10">
-                
+            <div class="col-sm-10">
+                <form action="{{ route('Goods.search', $goodss->goods_name)}}" class="form-inline" method="GET">
+                    <input type="search" name="search" class="form-control" placeholder="Search">
+                    <div class="input-group-append">
+                        <button type="submit" class="btn btn-default">
+                            <i class="fas fa-search"></i>
+                        </button>
+                    </div>
+                </form>
             </div>
             <div class="col-sm-2">
                 <a class="btn btn-success" href="{{ route('Goods.create')}}"> Add Goods </a>
             </div>
         </div> 
+        @endforeach
         <br>
 
     @if ($message = Session::get('success'))
