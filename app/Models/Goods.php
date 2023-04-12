@@ -9,7 +9,7 @@ class Goods extends Model
 {
     protected $table="goods";
     public $timestamps= false;
-    protected $primarykey = 'goods_code';
+    protected $primaryKey = 'goods_code';
 
     protected $fillable = [
         'goods_code', 

@@ -40,7 +40,7 @@ class GoodsController extends Controller
             'qty' => 'required', 
         ]); 
         Goods::create($request->all()); 
-        return redirect()->route('goods.index') 
+        return redirect()->route('Goods.index') 
         ->with('success', 'Goods Successfully Added');
     }
 
@@ -75,7 +75,7 @@ class GoodsController extends Controller
             'qty' => 'required', 
         ]); 
         Goods::find($goods_code)->update($request->all()); 
-        return redirect()->route('goods.index') 
+        return redirect()->route('Goods.index') 
         ->with('success', 'Goods Successfully Updated');
     }
 
@@ -85,7 +85,7 @@ class GoodsController extends Controller
     public function destroy($goods_code)
     {
         Goods::find($goods_code)->delete(); 
-        return redirect()->route('goods.index') 
+        return redirect()->route('Goods.index') 
         -> with('success', 'Goods Successfully Deleted');
     }
 }

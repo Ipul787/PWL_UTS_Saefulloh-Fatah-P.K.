@@ -35,11 +35,11 @@
     <table class="table table-striped">
       <thead>
         <tr>
-            <th width="40px"><b>ID</b></th>
-            <th width="180px">Name</th>
-            <th width="100px">Category</th>
-            <th width="100px">Price</th>
-            <th >Quantity</th>
+            <th><b>ID</b></th>
+            <th>Name</th>
+            <th>Category</th>
+            <th>Price</th>
+            <th>Quantity</th>
             <th width="210px">Action</th>
         </tr>
       </thead>
@@ -51,12 +51,11 @@
                 <td>{{$goodss->goods_price}}</td>
                 <td>{{$goodss->qty}}</td>
                 <td>
-                    <form action="{{ route('Goods.destroy',$goodss->goods_code) }}" method="post">
                     <a class="btn btn-sm btn-success" href="{{ route('Goods.show', $goodss->goods_code)}}">Show</a>
                     <a class="btn btn-sm btn-warning" href="{{ route('Goods.edit', $goodss->goods_code)}}">Edit</a>
                     @csrf
                     @method('DELETE')
-                    <button type="submit" class="btn btn-sm btn-danger">Delete</button>
+                    <a class="btn btn-sm btn-danger" href="{{ route('Goods.destroy', $goodss->goods_code)}}">Delete</a>
                     </form>    
                 </td>
             </tr>
