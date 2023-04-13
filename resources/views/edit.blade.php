@@ -67,13 +67,6 @@
                     <input type="text" name="qty" class="form-control" value="{{$Goods->qty}}" id="qty" placeholder="Quantity">
                 </div>
             </div>
-            <!--<div class="form-group row">
-                <label for="gambarMahasiswa" class="col-sm-2 col-form-label">Pilih gambar</label>
-                <div class="col-sm-10">
-                    <input type="file" name="gambarMahasiswa">
-                <p class="text-danger">{{ $errors->first('gambarMahasiswa') }}</p>
-                </div>
-            </div>-->
 
              <hr>
                 <div class="form-group">
