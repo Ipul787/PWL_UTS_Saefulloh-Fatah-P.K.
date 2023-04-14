@@ -13,7 +13,7 @@
     <div class="container">
         <div class=" form-row">
             <div class="col-lg-12">
-                <h3>Goods Detail</h3>
+                <h3  style="font-family: Nunito">Goods Detail</h3>
             </div>
         </div>
         <br>
@@ -50,7 +50,7 @@
         </div>
         <div class="form-group row">
             <div class="col-md-12">
-                <a href="{{ route('Goods.index')}}" class="btn btn-success">Kembali</a>
+                <a href="{{ route('Goods.index')}}" class="btn btn-success">Back to Main Page</a>
             </div>
         </div>
 

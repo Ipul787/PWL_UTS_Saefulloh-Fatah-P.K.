@@ -12,7 +12,7 @@
     <div class="container">
         <div class=" form-row">
             <div class="col-lg-12">
-                <h3>Add Goods Table</h3>
+                <h3>Add Goods Data</h3>
             </div>
         </div>
         <br>
@@ -69,7 +69,7 @@
 
              <hr>
                 <div class="form-group">
-                    <a href="{{route('Goods.index')}}" class="btn btn-success">Back to Main Menu</a>
+                    <a href="{{route('Goods.index')}}" class="btn btn-success">Back to Main Page</a>
                     <button type="submit" class="btn btn-primary">Add</button>
                 </div>
         </form>

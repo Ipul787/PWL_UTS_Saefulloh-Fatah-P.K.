@@ -13,7 +13,9 @@
     <div class="container">
         <div class="row">
             <div class="col-md-10">
-                <h3> List of Goods Sold by Megamarket Superstore </h3>
+                <center>
+                <h3 style="font-family: Nunito"> List of Goods Sold by Megamarket Superstore </h3>
+                </center>
             </div>
         </div>
         <div class="row">
@@ -39,7 +41,7 @@
         </div>
     @endif
 
-    <table class="table table-striped">
+    <table class="table table-striped table-bordered">
       <thead>
         <tr>
             <th><b>ID</b></th>

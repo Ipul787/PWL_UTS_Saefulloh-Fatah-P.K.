@@ -70,7 +70,7 @@
 
              <hr>
                 <div class="form-group">
-                    <a href="{{route('Goods.index')}}" class="btn btn-success">Back to Main Menu</a>
+                    <a href="{{route('Goods.index')}}" class="btn btn-success">Back to Main Page</a>
                     <button type="submit" class="btn btn-primary">Edit</button>
                 </div>
         </form>
